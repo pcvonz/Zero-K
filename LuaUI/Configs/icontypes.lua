@@ -642,49 +642,49 @@ local icontypes = {
     size=2.4,
   },
   
-  --defense
-  defenseshield = {
-    bitmap='icons/defenseshield.dds',
+  --defence
+  defenceshield = {
+    bitmap='icons/defenceshield.dds',
     size=2.0,
   },
-  defense = {
-    bitmap='icons/defense.dds',
+  defence = {
+    bitmap='icons/defence.dds',
     size=2.0,
   },
-  defensetorp = {
-    bitmap='icons/defensetorp.png',
+  defencetorp = {
+    bitmap='icons/defencetorp.png',
     size=2.0,
   },
-  defenseskirm = {
-    bitmap='icons/defenseskirm.dds',
+  defenceskirm = {
+    bitmap='icons/defenceskirm.dds',
     size=2.0,
   },
-  defenseheavy = {
-    bitmap='icons/defenseheavy.dds',
+  defenceheavy = {
+    bitmap='icons/defenceheavy.dds',
     size=2.0,
   },
-  defenseriot = {
-    bitmap='icons/defenseriot.dds',
+  defenceriot = {
+    bitmap='icons/defenceriot.dds',
     size=2.0,
   },
-  defensesupport = {
-    bitmap='icons/defensesupport.png',
+  defencesupport = {
+    bitmap='icons/defencesupport.png',
     size=2.0,
   },
-  defenseraider = {
-    bitmap='icons/defenseraider.dds',
+  defenceraider = {
+    bitmap='icons/defenceraider.dds',
     size=2.0,
   },
-  defenseaa = {
-    bitmap='icons/defenseaa.dds',
+  defenceaa = {
+    bitmap='icons/defenceaa.dds',
     size=2.0,
   },
-  defenseskirmaa = {
-    bitmap='icons/defenseskirmaa.png',
+  defenceskirmaa = {
+    bitmap='icons/defenceskirmaa.png',
     size=2.0,
   },
-  defensespecial = {
-    bitmap='icons/defensespecial.dds',
+  defencespecial = {
+    bitmap='icons/defencespecial.dds',
     size=2.0,
   },
 
@@ -1302,13 +1302,13 @@ local icontypes = {
 	distance = 1.6,
     size = 3.4,
   },
-  pw_defense = {
-    bitmap='icons/pw_defense.png',
+  pw_defence = {
+    bitmap='icons/pw_defence.png',
 	distance = 1.3,
     size = 3.0,
   },
-  pw_defense2 = {
-    bitmap='icons/pw_defense2.png',
+  pw_defence2 = {
+    bitmap='icons/pw_defence2.png',
 	distance = 1.6,
     size = 3.2,
   },

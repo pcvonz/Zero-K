@@ -23,7 +23,7 @@ return { turrettorp = {
   explodeAs         = [[MEDIUM_BUILDINGEX]],
   footprintX        = 3,
   footprintZ        = 3,
-  iconType          = [[defensetorp]],
+  iconType          = [[defencetorp]],
   idleAutoHeal      = 5,
   idleTime          = 1800,
 

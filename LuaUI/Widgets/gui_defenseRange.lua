@@ -1,7 +1,7 @@
 function widget:GetInfo()
 	return {
-		name      = "Defense Range Zero-K",
-		desc      = "[v6.2.6] Displays range of defenses (enemy and ally)",
+		name      = "Defence Range Zero-K",
+		desc      = "[v6.2.6] Displays range of defences (enemy and ally)",
 		author    = "very_bad_soldier / versus666",
 		date      = "October 21, 2007 / September 08, 2010",
 		license   = "GNU GPL v2",
@@ -192,7 +192,7 @@ local myPlayerID = Spring.GetLocalPlayerID()
 
 local defences = {}
 local needRedraw = false
-local defenseRangeDrawList
+local defenceRangeDrawList
 
 -- Chili buttonry
 
@@ -203,7 +203,7 @@ local global_command_button
 -- EPIC options
 
 local Chili
-options_path = 'Settings/Interface/Defense and Cloak Ranges'
+options_path = 'Settings/Interface/Defence and Cloak Ranges'
 
 local function OnOptChange(self)
 	local cb = checkboxes[self.key]
@@ -216,7 +216,7 @@ local function OnOptChange(self)
 end
 
 options = {
-	label = { type = 'label', name = 'Defense Ranges' },
+	label = { type = 'label', name = 'Defence Ranges' },
 	allyground = {
 		name = 'Show Ally Ground Defence',
 		type = 'bool',
@@ -468,8 +468,8 @@ function widget:Update(dt)
 	if needRedraw then
 		needRedraw = needRedraw - dt
 		if needRedraw < 0 then
-			glDeleteList(defenseRangeDrawList)
-			defenseRangeDrawList = glCreateList(RedrawDrawRanges)
+			glDeleteList(defenceRangeDrawList)
+			defenceRangeDrawList = glCreateList(RedrawDrawRanges)
 			needRedraw = false
 		end
 	end
@@ -547,8 +547,8 @@ function widget:DrawWorldPreUnit()
 		return
 	end
 
-	if defenseRangeDrawList then
-		glCallList(defenseRangeDrawList)
+	if defenceRangeDrawList then
+		glCallList(defenceRangeDrawList)
 	end
 	glColor(1, 1, 1, 1)
 	glLineWidth(1.0)
@@ -561,7 +561,7 @@ local function SetupChiliStuff()
 
 	local mainWindow = WG.Chili.Window:New{
 		classname = "main_window_small_tall",
-		name      = 'DefenseRangesWindow',
+		name      = 'DefenceRangesWindow',
 		x         =  50,
 		y         = 150,
 		width     = 120,
@@ -575,14 +575,14 @@ local function SetupChiliStuff()
 		parent = WG.Chili.Screen0,
 	}
 
-	pics.ground = WG.Chili.Image:New { x = 0, y = 24*1, file = 'LuaUI/Images/defense_ranges/ground.png' }
-	pics.air    = WG.Chili.Image:New { x = 0, y = 24*2, file = 'LuaUI/Images/defense_ranges/air.png'    }
-	pics.nuke   = WG.Chili.Image:New { x = 0, y = 24*3, file = 'LuaUI/Images/defense_ranges/nuke.png'   }
-	pics.shield = WG.Chili.Image:New { x = 0, y = 24*4, file = 'LuaUI/Images/defense_ranges/shield.png' }
-	pics.radar  = WG.Chili.Image:New { x = 0, y = 24*5, file = 'LuaUI/Images/defense_ranges/radar.png'  }
+	pics.ground = WG.Chili.Image:New { x = 0, y = 24*1, file = 'LuaUI/Images/defence_ranges/ground.png' }
+	pics.air    = WG.Chili.Image:New { x = 0, y = 24*2, file = 'LuaUI/Images/defence_ranges/air.png'    }
+	pics.nuke   = WG.Chili.Image:New { x = 0, y = 24*3, file = 'LuaUI/Images/defence_ranges/nuke.png'   }
+	pics.shield = WG.Chili.Image:New { x = 0, y = 24*4, file = 'LuaUI/Images/defence_ranges/shield.png' }
+	pics.radar  = WG.Chili.Image:New { x = 0, y = 24*5, file = 'LuaUI/Images/defence_ranges/radar.png'  }
 
-	pics.ally  = WG.Chili.Image:New { x = 24*1, y = 0, file = 'LuaUI/Images/defense_ranges/defense_ally.png'  }
-	pics.enemy = WG.Chili.Image:New { x = 24*2, y = 0, file = 'LuaUI/Images/defense_ranges/defense_enemy.png' }
+	pics.ally  = WG.Chili.Image:New { x = 24*1, y = 0, file = 'LuaUI/Images/defence_ranges/defence_ally.png'  }
+	pics.enemy = WG.Chili.Image:New { x = 24*2, y = 0, file = 'LuaUI/Images/defence_ranges/defence_enemy.png' }
 	pics.spec  = WG.Chili.Image:New { x = 24*3, y = 0, file = 'LuaUI/Images/dynamic_comm_menu/eye.png'        }
 
 	for key, pic in pairs(pics) do
@@ -641,7 +641,7 @@ local function SetupChiliStuff()
 				mainWindow:SetVisibility(not mainWindow.visible)
 			end
 		end
-		global_command_button = WG.GlobalCommandBar.AddCommand("LuaUI/Images/defense_ranges/defense_colors.png", "Defense Ranges", ToggleWindow)
+		global_command_button = WG.GlobalCommandBar.AddCommand("LuaUI/Images/defence_ranges/defence_colors.png", "Defence Ranges", ToggleWindow)
 	end
 end
 
@@ -658,5 +658,5 @@ function widget:Shutdown()
 	for unitID,def in pairs(defences) do
 		glDeleteList(def.drawList)
 	end
-	glDeleteList(defenseRangeDrawList)
+	glDeleteList(defenceRangeDrawList)
 end

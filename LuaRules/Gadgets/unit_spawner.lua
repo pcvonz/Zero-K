@@ -93,8 +93,8 @@ local data = {
 	targets = {},	--indexed by unitID, value = teamID
 	
 	totalTechAccel = 0,
-	defensePool = 0,
-	defenseQuota = 0,
+	defencePool = 0,
+	defenceQuota = 0,
 	
 	humanAggro = 0,		-- decreases linearly
 	humanAggroDelta = 0,	-- resets to zero every wave
@@ -252,8 +252,8 @@ local malus = playerCount^playerMalus
 
 burrowRegressTime = burrowRegressTime/playerCount
 humanAggroPerBurrow = humanAggroPerBurrow/playerCount
-humanAggroDefenseFactor = humanAggroDefenseFactor*playerCount
-defensePerWave	= defensePerWave*playerCount
+humanAggroDefenceFactor = humanAggroDefenceFactor*playerCount
+defencePerWave	= defencePerWave*playerCount
 
 echo("Chicken configured for "..playerCount.." players")
 
@@ -575,7 +575,7 @@ local function SpawnTurret(burrowID, turret, number, force)
 	
 	local cost = (defenders[turret] and defenders[turret].cost) or 1
 	local squadSize = (defenders[turret] and defenders[turret].squadSize) or 1
-	squadSize = squadSize*data.defenseQuota/cost * random(75, 125)/100
+	squadSize = squadSize*data.defenceQuota/cost * random(75, 125)/100
 	
 	if ((not force) and random() > squadSize) then
 		return
@@ -591,7 +591,7 @@ local function SpawnTurret(burrowID, turret, number, force)
 	local turretDef
 
 	if not force then
-		data.defensePool = data.defensePool - cost*spawnNumber
+		data.defencePool = data.defencePool - cost*spawnNumber
 	end
 	
 	for i=1, spawnNumber do
@@ -941,20 +941,20 @@ local function Wave()
 		SpawnChicken(data.queenID, chicken2Number*queenSpawnMult, chicken2Name)
 	end
 
-	-- some code for defenses
-	local defensePoolDelta = data.humanAggro * humanAggroDefenseFactor
+	-- some code for defences
+	local defencePoolDelta = data.humanAggro * humanAggroDefenceFactor
 	if turret then
-		defensePoolDelta = defensePoolDelta + defensePerWave	-- don't add defensePerWave for the waves where no turrets can be spawned anyway
+		defencePoolDelta = defencePoolDelta + defencePerWave	-- don't add defencePerWave for the waves where no turrets can be spawned anyway
 	end
-	if defensePoolDelta < 0 then defensePoolDelta = 0 end
-	data.defensePool = data.defensePool + defensePoolDelta
-	data.defenseQuota = data.defensePool/burrowCount
+	if defencePoolDelta < 0 then defencePoolDelta = 0 end
+	data.defencePool = data.defencePool + defencePoolDelta
+	data.defenceQuota = data.defencePool/burrowCount
 	
 	local spawnDef = false
 	local cost = (defenders[turret] and defenders[turret].cost) or 1
-	if turret and cost < data.defenseQuota then
+	if turret and cost < data.defenceQuota then
 		spawnDef = true
-		--Spring.Echo("Defense pool/quota: " .. data.defensePool .. " / " .. data.defenseQuota)
+		--Spring.Echo("Defence pool/quota: " .. data.defencePool .. " / " .. data.defenceQuota)
 	end
 	
  
@@ -1238,7 +1238,7 @@ function gadget:UnitDestroyed(unitID, unitDefID, unitTeam)
 		data.totalTechAccel = data.totalTechAccel - techDecel
 		Spring.SetGameRulesParam("techAccel", data.totalTechAccel)
 		
-		data.defensePool = data.defensePool + defensePerBurrowKill
+		data.defencePool = data.defencePool + defencePerBurrowKill
 		
 		-- spawn turrets
 		--[[
@@ -1359,8 +1359,8 @@ function gadget:Load(zip)
 	data.eggDecay = GG.SaveLoad.GetNewFeatureIDKeys(saveData.eggDecay)
 	data.targets = GG.SaveLoad.GetNewUnitIDKeys(saveData.targets)
 	data.totalTechAccel = saveData.totalTechAccel
-	data.defensePool = saveData.defensePool
-	data.defenseQuota = saveData.defenseQuota
+	data.defencePool = saveData.defencePool
+	data.defenceQuota = saveData.defenceQuota
 	
 	data.humanAggro = saveData.humanAggro
 	data.humanAggroDelta = saveData.humanAggroDelta

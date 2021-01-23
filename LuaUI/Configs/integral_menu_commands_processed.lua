@@ -1,4 +1,4 @@
-local cmdPosDef, factoryUnitPosDef, factory_commands, econ_commands, defense_commands, special_commands = include("Configs/integral_menu_commands.lua", nil, VFS.RAW_FIRST)
+local cmdPosDef, factoryUnitPosDef, factory_commands, econ_commands, defence_commands, special_commands = include("Configs/integral_menu_commands.lua", nil, VFS.RAW_FIRST)
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
@@ -110,7 +110,7 @@ end
 
 ProcessBuildArray(factory_commands, buildCmdFactory)
 ProcessBuildArray(econ_commands, buildCmdEconomy)
-ProcessBuildArray(defense_commands, buildCmdDefence)
+ProcessBuildArray(defence_commands, buildCmdDefence)
 ProcessBuildArray(special_commands, buildCmdSpecial)
 
 for name, listData in pairs(factoryUnitPosDef) do

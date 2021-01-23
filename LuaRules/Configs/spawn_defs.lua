@@ -68,8 +68,8 @@ waveSizeMult			= 1
 --forceBurrowRespawn	 = false	-- burrows always respawn even if the modoption is set otherwise
 queenSpawnMult			= 4		 -- how many times bigger is a queen hatch than a normal burrow hatch
 
-defensePerWave			= 0.5	-- number of turrets added to defense pool every wave, multiplied by playercount
-defensePerBurrowKill	= 0.5	-- number of turrets added to defense pool for each burrow killed
+defencePerWave			= 0.5	-- number of turrets added to defence pool every wave, multiplied by playercount
+defencePerBurrowKill	= 0.5	-- number of turrets added to defence pool for each burrow killed
 
 gracePeriod				= 180	   -- no chicken spawn in this period, seconds
 gracePenalty			= 15		-- reduced grace per player over one, seconds
@@ -93,7 +93,7 @@ humanAggroMin			= -100
 humanAggroMax			= 100
 humanAggroWaveFactor	= 1
 humanAggroWaveMax		= 5
-humanAggroDefenseFactor	= 0.5	-- turrets issued per point of PAR every wave, multiplied by playercount
+humanAggroDefenceFactor	= 0.5	-- turrets issued per point of PAR every wave, multiplied by playercount
 humanAggroTechTimeProgress	= 20	-- how much to increase chicken tech progress (* aggro), seconds
 humanAggroTechTimeRegress	= 0	-- how much to reduce chicken tech progress (* aggro), seconds
 humanAggroQueenTimeFactor	= 1	-- burrow queen time is multiplied by this and aggro (after clamping)
@@ -154,7 +154,7 @@ local chickenTypes = Spring.Utilities.CustomKeyToUsefulTable(Spring.GetModOption
 	chicken_tiamat		=  {time = 55,  squadSize = 0.2},
 }
 
-local defenders = Spring.Utilities.CustomKeyToUsefulTable(Spring.GetModOptions().campaign_chicken_types_defense) or {
+local defenders = Spring.Utilities.CustomKeyToUsefulTable(Spring.GetModOptions().campaign_chicken_types_defence) or {
   chickend = {time = 10, squadSize = 0.6, cost = 1 },
   chicken_dodo = {time = 25,  squadSize = 2, cost = 1},
   chicken_rafflesia =  {time = 25, squadSize = 0.4, cost = 2 },

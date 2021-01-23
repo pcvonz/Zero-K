@@ -922,13 +922,13 @@ AddFactoryOfUnits("striderhub")
 AddFactoryOfUnits("staticmissilesilo")
 
 local buildOpts = VFS.Include("gamedata/buildoptions.lua")
-local factory_commands, econ_commands, defense_commands, special_commands = include("Configs/integral_menu_commands_processed.lua", nil, VFS.RAW_FIRST)
+local factory_commands, econ_commands, defence_commands, special_commands = include("Configs/integral_menu_commands_processed.lua", nil, VFS.RAW_FIRST)
 
 for i = 1, #buildOpts do
 	local name = buildOpts[i]
 	if econ_commands[-UnitDefNames[name].id] then
 		addUnit(name,"Economy")
-	elseif defense_commands[-UnitDefNames[name].id] then
+	elseif defence_commands[-UnitDefNames[name].id] then
 		addUnit(name,"Defence")
 	elseif special_commands[-UnitDefNames[name].id] then
 		addUnit(name,"Special")

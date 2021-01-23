@@ -147,14 +147,14 @@ AddFactoryOfUnits("striderhub")
 AddFactoryOfUnits("staticmissilesilo")
 
 local buildOpts = VFS.Include("gamedata/buildoptions.lua")
-local factory_commands, econ_commands, defense_commands, special_commands = include("Configs/integral_menu_commands_processed.lua", nil, VFS.RAW_FIRST)
+local factory_commands, econ_commands, defence_commands, special_commands = include("Configs/integral_menu_commands_processed.lua", nil, VFS.RAW_FIRST)
 
 for i = 1, #buildOpts do
 	local name = buildOpts[i]
 	local unitDefID = UnitDefNames[name].id
 	if econ_commands[-unitDefID] then
 		behaviourPath[unitDefID] = BEHAVIOUR_PATH .. "Economy"
-	elseif defense_commands[-unitDefID] then
+	elseif defence_commands[-unitDefID] then
 		behaviourPath[unitDefID] = BEHAVIOUR_PATH .. "Defence"
 	elseif special_commands[-unitDefID] then
 		behaviourPath[unitDefID] = BEHAVIOUR_PATH .. "Special"
@@ -279,13 +279,13 @@ AddFactoryOfUnits("striderhub")
 AddFactoryOfUnits("staticmissilesilo")
 
 local buildOpts = VFS.Include("gamedata/buildoptions.lua")
-local factory_commands, econ_commands, defense_commands, special_commands = include("Configs/integral_menu_commands_processed.lua", nil, VFS.RAW_FIRST)
+local factory_commands, econ_commands, defence_commands, special_commands = include("Configs/integral_menu_commands_processed.lua", nil, VFS.RAW_FIRST)
 
 for i = 1, #buildOpts do
 	local udid = UnitDefNames[buildOpts[i]].id
 	if econ_commands[-udid] then
 		addUnit(udid,"Buildings/Economy", true)
-	elseif defense_commands[-udid] then
+	elseif defence_commands[-udid] then
 		addUnit(udid,"Buildings/Defence", true)
 	elseif special_commands[-udid] then
 		addUnit(udid,"Buildings/Special", true)

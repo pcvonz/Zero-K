@@ -191,7 +191,7 @@ local fighter = {
 	},
 }
 
-local defenseRequirementNames =  {
+local defenceRequirementNames =  {
 	["staticmex"] = {mult = 1.5},
 	["energywind"] = {mult = 1},
 	["energysolar"] = {mult = 0.6},
@@ -316,6 +316,6 @@ local completeListUnitDefID = {}
 AddListNames(completeListUnitDefID, completeUnitListNames)
 
 
-local defenseRequirementUnitDefID = CreateWeightedNameList(defenseRequirementNames)
+local defenceRequirementUnitDefID = CreateWeightedNameList(defenceRequirementNames)
 
-return defenseRequirementUnitDefID, completeListUnitDefID
+return defenceRequirementUnitDefID, completeListUnitDefID

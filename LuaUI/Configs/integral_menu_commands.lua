@@ -300,7 +300,7 @@ local econ_commands = {
 	staticrearm       = {order = 10, row = 3, col = 4},
 }
 
-local defense_commands = {
+local defence_commands = {
 	turretlaser       = {order = 2, row = 1, col = 1},
 	turretmissile     = {order = 1, row = 1, col = 2},
 	turretriot        = {order = 2, row = 1, col = 3},
@@ -343,7 +343,7 @@ local special_commands = {
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 
-return cmdPosDef, factoryUnitPosDef, factory_commands, econ_commands, defense_commands, special_commands
+return cmdPosDef, factoryUnitPosDef, factory_commands, econ_commands, defence_commands, special_commands
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------

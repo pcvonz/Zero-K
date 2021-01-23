@@ -5,7 +5,7 @@ MIN_PULL_FOR_NANOS = -10	-- don't make more nanos if our pull is already this lo
 NANO_DEF_ID = UnitDefNames.staticcon.id
 ENERGY_TO_METAL_RATIO = 6	-- suggested maximum for energy
 ENERGY_LOW_THRESHOLD = 200
-DEFENSE_QUOTA = 0.4	-- suggested maximum proportion of total assets that is defense
+DEFENSE_QUOTA = 0.4	-- suggested maximum proportion of total assets that is defence
 
 RANK_LIMIT = 3
 
@@ -40,7 +40,7 @@ tips = {
 	factory_duplicate = {str = {"We already have one of\nthat factory. Remember you can\nassist it with constructors."}, life = 9, cooldown = 60},
 	factory_multiple = {str = {"Sir, we might not need another\nfactory so soon. You can assist your\nfirst factory with constructors."}, life = 10, cooldown = 60, verbosity = 2},
 	
-	defense_excess = {str = {"Boss, we have plenty of defence.\nMight want some mobile units instead.",
+	defence_excess = {str = {"Boss, we have plenty of defence.\nMight want some mobile units instead.",
 				"Chief, we should build mobile\nunits instead. We already\nhave plenty of defence."}, life = 9, cooldown = 20}
 }
 
@@ -87,7 +87,7 @@ local energyDefs = {
 	"energysingu",
 }
 
-local defenseDefs = {
+local defenceDefs = {
 	"turretlaser",
 	"turretmissile",
 	"turretriot",
@@ -126,12 +126,12 @@ commanders = {}
 factories = {}
 adv_factories = {}
 energy = {}
-defenses = {}
+defences = {}
 canRetreat = {}
 
 for i=1,#UnitDefs do
 	if UnitDefs[i].customParams.commtype then commanders[i]=true
-	--elseif (not UnitDefs[i].canMove) and UnitDefs[i].canAttack then defenses[i]=true	-- bad idea: includes superweapons
+	--elseif (not UnitDefs[i].canMove) and UnitDefs[i].canAttack then defences[i]=true	-- bad idea: includes superweapons
 	elseif UnitDefs[i].metalCost >= THRESHOLD_EXPENSIVE then expensive_units[i] = true end
 end
 
@@ -146,5 +146,5 @@ CreateArray(superweaponDefs, superweapons)
 CreateArray(hyperweaponDefs, hyperweapons)
 CreateArray(canRetreatDefs, canRetreat)
 CreateArray(energyDefs, energy)
-CreateArray(defenseDefs, defenses)
+CreateArray(defenceDefs, defences)
 CreateArray(factoryDefs, factories)

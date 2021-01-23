@@ -459,7 +459,7 @@ local function GetInstructions()
 	local isNeutral = (modOpts.defendingfaction == NEUTRAL_FACTION)
 	local battleType = isNeutral and "neutral" or "pvp"
 
-	local baseTotalIP = math.max(0, tonumber(modOpts.pw_dropshipip) + tonumber(modOpts.pw_baseip) - tonumber(modOpts.pw_defenseip))
+	local baseTotalIP = math.max(0, tonumber(modOpts.pw_dropshipip) + tonumber(modOpts.pw_baseip) - tonumber(modOpts.pw_defenceip))
 	local attLostCC = PrettyNum(baseTotalIP * tonumber(modOpts.pw_attackerwinlosecc))
 	local defLostCC = PrettyNum(baseTotalIP * tonumber(modOpts.pw_defenderwinkillcc))
 	baseTotalIP = PrettyNum(baseTotalIP)
@@ -484,7 +484,7 @@ local function GetInstructions()
 
 		base      = PrettyNum(modOpts.pw_baseip),
 		dropships = PrettyNum(modOpts.pw_dropshipip),
-		defense   = PrettyNum(modOpts.pw_defenseip),
+		defence   = PrettyNum(modOpts.pw_defenceip),
 
 		defender = defender,
 		attacker = attacker,

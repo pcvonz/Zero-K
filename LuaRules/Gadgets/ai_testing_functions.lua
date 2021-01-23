@@ -147,7 +147,7 @@ function gadget:AllowCommand(unitID, unitDefID, teamID, cmdID, cmdParams, cmdOpt
 	end
 	
 	if cmdID == CMD.FIGHT then
-		--vehPath.SetDefenseHeatmaps({aaHeatmap})
+		--vehPath.SetDefenceHeatmaps({aaHeatmap})
 		--local waypoints, waypointCount = vehPath.GetPath(1150, 650, cmdParams[1], cmdParams[3], false, 0.02)
 		--if waypoints then
 		--	for i = 1, waypointCount do

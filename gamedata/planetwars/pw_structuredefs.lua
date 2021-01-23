@@ -214,7 +214,7 @@ local structureConfig = {
 		unitDef.name = "Field Garrison"
 		unitDef.description = "Reduces Influence gain"
 		unitDef.objectname = "pw_wormhole.dae"
-		unitDef.icontype = [[pw_defense]]
+		unitDef.icontype = [[pw_defence]]
 		unitDef.script = "pw_wormhole.lua"
 
 		unitDef.canattack = true
@@ -263,10 +263,10 @@ local structureConfig = {
 
 	pw_grid = function(unitDef)
 		unitDef.maxdamage = 20000
-		unitDef.name = "Planetary Defense Grid"
+		unitDef.name = "Planetary Defence Grid"
 		unitDef.description = "Defends against everything"
 		unitDef.objectname = "pw_wormhole2.dae"
-		unitDef.icontype = [[pw_defense2]]
+		unitDef.icontype = [[pw_defence2]]
 		unitDef.script = "pw_wormhole2.lua"
 
 		unitDef.footprintx = 8

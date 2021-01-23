@@ -2,7 +2,7 @@
  * Contains all the units that the AI can control and none that it cannot control.
  * Maintains cluster maps for defensible structures
 --]]
-local DefenseRequirementUnitDefID, ListUnitDefID = VFS.Include("LuaRules/Configs/CAI/teamUnitTrackerConfig.lua")
+local DefenceRequirementUnitDefID, ListUnitDefID = VFS.Include("LuaRules/Configs/CAI/teamUnitTrackerConfig.lua")
 local StaticUnits, MovetypeDefID, Movetypes = VFS.Include("LuaRules/Configs/CAI/unitMovetype.lua")
 
 local UnitListHandler = VFS.Include("LuaRules/Gadgets/CAI/UnitListHandler.lua")
@@ -42,7 +42,7 @@ function teamUnitTracker.CreateTeamUnitTracker(teamID, allyTeamID)
 		--fighter
 	}
 	
-	local defenseRequire = UnitClusterHandler.CreateUnitCluster(losCheckAllyTeamID, 300)
+	local defenceRequire = UnitClusterHandler.CreateUnitCluster(losCheckAllyTeamID, 300)
 	
 	local function AddUnit(unitID, unitDefID)
 		totalCostAdded = totalCostAdded + listData.cost
@@ -60,11 +60,11 @@ function teamUnitTracker.CreateTeamUnitTracker(teamID, allyTeamID)
 			str = str .. ", Combat List: " .. combatListData.name
 		end
 		
-		-- Defense require
-		local desenseRequireData = DefenseRequirementUnitDefID[unitDefID]
+		-- Defence require
+		local desenseRequireData = DefenceRequirementUnitDefID[unitDefID]
 		if desenseRequireData then
-			defenseRequire.AddUnit(unitID, desenseRequireData.amount, StaticUnits[unitDefID])
-			str = str .. ", Defense Require Unit"
+			defenceRequire.AddUnit(unitID, desenseRequireData.amount, StaticUnits[unitDefID])
+			str = str .. ", Defence Require Unit"
 		end
 		
 		Spring.Utilities.UnitEcho(unitID, str)
@@ -77,10 +77,10 @@ function teamUnitTracker.CreateTeamUnitTracker(teamID, allyTeamID)
 		local listData = ListUnitDefID[unitDefID]
 		completeUnitList[listData.name].RemoveUnit(unitID)
 		
-		-- Defense require
-		local desenseRequireData = DefenseRequirementUnitDefID[unitDefID]
+		-- Defence require
+		local desenseRequireData = DefenceRequirementUnitDefID[unitDefID]
 		if desenseRequireData then
-			defenseRequire.RemoveUnit(unitID)
+			defenceRequire.RemoveUnit(unitID)
 		end
 	end
 	

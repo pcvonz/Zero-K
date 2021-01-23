@@ -1614,7 +1614,7 @@ function IntelliCost(unitID, hash, ux, uz, jx, jz)
 	
 	-- The following cost calculation produces a number of different effects:
 	
-	-- It prioritizes small defenses highly, and encourages two workers per small defense structure.
+	-- It prioritizes small defences highly, and encourages two workers per small defence structure.
 	-- This is to improve worker safety and deter light raiding more effectively.
 	
 	-- Small energy is penalized slightly to encourage workers to cap mexes consistently earlier when expanding.
@@ -1666,7 +1666,7 @@ function IntelliCost(unitID, hash, ux, uz, jx, jz)
 			else
 				cost = distance + 400
 			end
-		elseif (unitDef and unitDef.reloadTime > 0) or job.id == CMD_RESURRECT then -- for small defenses and resurrect
+		elseif (unitDef and unitDef.reloadTime > 0) or job.id == CMD_RESURRECT then -- for small defences and resurrect
 			cost = distance - 150
 		elseif unitDef and (string.match(unitDef.humanName, "Solar") or string.match(unitDef.humanName, "Wind")) then -- for small energy
 			cost = distance + 100
@@ -1676,7 +1676,7 @@ function IntelliCost(unitID, hash, ux, uz, jx, jz)
 	else -- for assisting other workers
 		if (metalCost and metalCost > 300) or job.id == CMD_RESURRECT then -- for expensive buildings and resurrect
 			cost = (distance/2) + (200 * (costMod - 2))
-		elseif unitDef and (unitDef.reloadTime > 0 or unitDef.name == 'staticcon') then -- for small defenses and caretakers, allow up to two workers before increasing cost
+		elseif unitDef and (unitDef.reloadTime > 0 or unitDef.name == 'staticcon') then -- for small defences and caretakers, allow up to two workers before increasing cost
 			cost = distance - 150 + (800 * (costMod - 2))
 		elseif job.id == CMD_REPAIR then -- for repair
 			if job.target then
@@ -1728,7 +1728,7 @@ function FlatCost(unitID, hash, ux, uz, jx, jz)
 	
 	-- All build jobs are cost=distance for starting new jobs.
 	
-	-- Expensive jobs have no mobbing penalty, while small defenses
+	-- Expensive jobs have no mobbing penalty, while small defences
 	-- allow up to 2 workers per job before the cost increases.
 	
 	-- all other small jobs have a high penalty for assisting.
@@ -1759,7 +1759,7 @@ function FlatCost(unitID, hash, ux, uz, jx, jz)
 	else -- for assisting other workers
 		if (metalCost and metalCost > 300) or job.id == CMD_RESURRECT then -- for expensive jobs and resurrect, no mobbing penalty
 			cost = distance
-		elseif unitDef and unitDef.reloadTime > 0 then -- for small defenses, allow up to two workers before increasing cost
+		elseif unitDef and unitDef.reloadTime > 0 then -- for small defences, allow up to two workers before increasing cost
 			cost = distance + (800 * (costMod - 2))
 		elseif job.id == CMD_REPAIR or job.id == CMD_RECLAIM then -- for repair and reclaim
 			cost = distance + (200 * costMod)

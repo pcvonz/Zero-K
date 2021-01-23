@@ -183,7 +183,7 @@ options = {
 		name = "Show unit and income stats",
 		type = 'bool',
 		value = true,
-		desc = "Display resource statistics: metal in mobile units and static defenses; metal and energy income.",
+		desc = "Display resource statistics: metal in mobile units and static defences; metal and energy income.",
 		OnChange = function() SetupPanels() end,
 	},
 	colorResourceStats = {
@@ -301,7 +301,7 @@ local x_teamsize
 local x_teamsize_dude
 local x_share
 local x_m_mobiles
-local x_m_defense
+local x_m_defence
 local x_m_income
 local x_e_income
 local x_m_fill
@@ -313,7 +313,7 @@ local x_bound
 local x_windowbound
 
 local x_m_mobiles_width
-local x_m_defense_width
+local x_m_defence_width
 local x_m_income_width
 local x_e_income_width
 
@@ -336,9 +336,9 @@ local function CalculateWidths()
 	x_share			= x_name + name_width
 	x_m_mobiles		= not amSpec and x_share + 12 or x_share
 	x_m_mobiles_width = options.stats_width.value * options.text_height.value / 2 + 10
-	x_m_defense		= x_m_mobiles + x_m_mobiles_width -- + 34
-	x_m_defense_width = options.stats_width.value * options.text_height.value / 2 + 10
-	x_m_income		= x_m_defense + x_m_defense_width
+	x_m_defence		= x_m_mobiles + x_m_mobiles_width -- + 34
+	x_m_defence_width = options.stats_width.value * options.text_height.value / 2 + 10
+	x_m_income		= x_m_defence + x_m_defence_width
 	x_m_income_width = options.income_width.value * options.text_height.value / 2 + 10
 	x_e_income		= x_m_income + x_m_income_width
 	x_e_income_width = options.income_width.value * options.text_height.value / 2 + 10
@@ -512,7 +512,7 @@ local function ProcessUnit(unitID, unitDefID, unitTeam, remove)
 					finishedUnits[unitID] = true
 					stats.mMobs = stats.mMobs + metal
 				end
-			-- for static defense, include full cost of unfinished units so you can see when your teammates are trying to build too much
+			-- for static defence, include full cost of unfinished units so you can see when your teammates are trying to build too much
 			elseif not unarmed then
 				stats.mDefs = stats.mDefs + metal
 			end
@@ -723,7 +723,7 @@ local function DrawPlayerTeamStats(entity,teamcolor,s)
 	if not options.colorResourceStats.value then teamcolor = {.85,.85,.85,1} end
 	if options.show_stats.value then
 		MakeNewLabel(entity,"m_mobilesLabel",{x=x_m_mobiles,width=x_m_mobiles_width,caption = FormatMetalStats(s.mMobs,true),textColor = teamcolor,align = 'right',})
-		MakeNewLabel(entity,"m_defenseLabel",{x=x_m_defense,width=x_m_defense_width,caption = FormatMetalStats(s.mDefs),textColor = teamcolor,align = 'right',})
+		MakeNewLabel(entity,"m_defenceLabel",{x=x_m_defence,width=x_m_defence_width,caption = FormatMetalStats(s.mDefs),textColor = teamcolor,align = 'right',})
 		MakeNewLabel(entity,"m_incomeLabel",{x=x_m_income,width=x_m_income_width,caption = string.format("%." .. (0) .. "f", s.mInco),textColor = teamcolor,align = 'right',})
 		MakeNewLabel(entity,"e_incomeLabel",{x=x_e_income,width=x_e_income_width,caption = string.format("%." .. (0) .. "f", s.eInco),textColor = teamcolor,align = 'right',})
 	end
@@ -733,7 +733,7 @@ end
 
 local function UpdatePlayerTeamStats(entity,s)
 	if entity.m_mobilesLabel then entity.m_mobilesLabel:SetCaption(FormatMetalStats(s.mMobs,true)) end
-	if entity.m_defenseLabel then entity.m_defenseLabel:SetCaption(FormatMetalStats(s.mDefs)) end
+	if entity.m_defenceLabel then entity.m_defenceLabel:SetCaption(FormatMetalStats(s.mDefs)) end
 	if entity.e_incomeLabel then entity.e_incomeLabel:SetCaption(string.format("%." .. (0) .. "f", s.eInco)) end
 	if entity.m_incomeLabel then entity.m_incomeLabel:SetCaption(string.format("%." .. (0) .. "f", s.mInco)) end
 	if entity.m_fillBar then entity.m_fillBar:SetValue(s.mCurr/s.mStor) end
@@ -883,7 +883,7 @@ local function AddTableHeaders()
 	end
 	if options.show_stats.value then
 		scroll_cpl:AddChild( Image:New{ x=x_m_mobiles - 10, y=((fontsize+1) * row) + 3,	height = (fontsize)+1, color =	{1, .3, .3, 1},  file = 'LuaUI/Images/commands/Bold/attack.png',} )
-		scroll_cpl:AddChild( Image:New{ x=x_m_defense - 7, y=((fontsize+1) * row) + 3,	height = (fontsize)+1, color = {.3, .3, 1, 1}, file = 'LuaUI/Images/commands/Bold/guard.png',} )
+		scroll_cpl:AddChild( Image:New{ x=x_m_defence - 7, y=((fontsize+1) * row) + 3,	height = (fontsize)+1, color = {.3, .3, 1, 1}, file = 'LuaUI/Images/commands/Bold/guard.png',} )
 		scroll_cpl:AddChild( Image:New{ x=x_e_income - 15, y=((fontsize+1) * row) + 3,	height = (fontsize)+1,  file = 'LuaUI/Images/energyplus.png',} )
 		scroll_cpl:AddChild( Image:New{ x=x_m_income - 15, y=((fontsize+1) * row) + 3,	height = (fontsize)+1, file = 'LuaUI/Images/metalplus.png',} )
 	end
@@ -1027,7 +1027,7 @@ local function AddEntity(entity, teamID, allyTeamID)
 		)
 	end
 
-	-- mobile and defense metal, metal and energy income, resource bars
+	-- mobile and defence metal, metal and energy income, resource bars
 	if teamID ~= -1 and (allyTeamID == localAlliance or amSpec) then
 		local s = GetPlayerTeamStats(teamID)
 		DrawPlayerTeamStats(entity,teamcolor,s)
@@ -1603,7 +1603,7 @@ function widget:GameStart()
 end
 
 -----------------------------------------------------------------------
--- we need both UnitCreated and UnitFinished because mobiles and static defense aren't treated the same >:<
+-- we need both UnitCreated and UnitFinished because mobiles and static defence aren't treated the same >:<
 function widget:UnitCreated(unitID, unitDefID, unitTeam)
 	local unarmed = UnitDefs[unitDefID].springCategories.unarmed
 	if UnitDefs[unitDefID].isImmobile and not unarmed then -- is static-d
@@ -1624,7 +1624,7 @@ function widget:UnitDestroyed(unitID, unitDefID, unitTeam)
 	      if finishedUnits[unitID] then
 		      ProcessUnit(unitID, unitDefID, unitTeam, true)
 	      end
-	elseif not unarmed then	-- static defense
+	elseif not unarmed then	-- static defence
 	      ProcessUnit(unitID, unitDefID, unitTeam, true)
 	end
 end

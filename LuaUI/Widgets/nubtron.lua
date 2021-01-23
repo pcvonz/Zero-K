@@ -151,7 +151,7 @@ local tasks = nubtronData.tasks
 local taskOrder = nubtronData.taskOrder
 nubtronData = nil
 
-local factory_commands, econ_commands, defense_commands, special_commands = include("Configs/integral_menu_commands_processed.lua", nil, VFS.RAW_FIRST)
+local factory_commands, econ_commands, defence_commands, special_commands = include("Configs/integral_menu_commands_processed.lua", nil, VFS.RAW_FIRST)
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
@@ -436,8 +436,8 @@ local function addTabText(unitDefID)
 		return " under the <Factory> tab."
 	elseif econ_commands[-unitDefID] then
 		return " under the <Econ> tab."
-	elseif defense_commands[-unitDefID] then
-		return " under the <Defense> tab."
+	elseif defence_commands[-unitDefID] then
+		return " under the <Defence> tab."
 	elseif special_commands[-unitDefID] then
 		return " under the <Special> tab."
 	end

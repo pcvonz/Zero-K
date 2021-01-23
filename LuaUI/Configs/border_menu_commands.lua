@@ -70,7 +70,7 @@ local buildoptions = {
 	},
 
 
-	{-- point_defense
+	{-- point_defence
 		{ "turretlaser",  notSea=true },
 		{ "turretemp",  notSea=true },-- Faraday
 		{ "turrettorp",  notLand=true },-- you can build it on land, but torpedoes are only useful around water.
@@ -84,7 +84,7 @@ local buildoptions = {
 		{ "staticantinuke",  tech=3, notSea=true },-- Antinuke
 	},
 
-	{-- air_defense
+	{-- air_defence
 		{ "corr" },-- mt
 		{ "turretaalaser" },
 		{ "turretaaclose" },-- hacksaw

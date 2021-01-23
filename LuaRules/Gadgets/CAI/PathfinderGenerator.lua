@@ -258,23 +258,23 @@ function PathfinderGenerator.CreatePathfinder(pathUnitDefID, pathMoveDefName, av
 	local heatmapFear = false
 	local heatFearFactor = false
 	
-	local defenseHeatmaps = {}
-	local defenseHeatmapCount = 0
+	local defenceHeatmaps = {}
+	local defenceHeatmapCount = 0
 	
 	local pathMap = CreatePathMap(pathUnitDefID, pathMoveDefName, avoidWaterDamage)
 	
 	local fearSumCache = {}
 	
 	-- Heatmap local functions
-	local function SetDefenseHeatmaps(newDefenseHeatmaps)
-		defenseHeatmaps = newDefenseHeatmaps
-		defenseHeatmapCount = #newDefenseHeatmaps
+	local function SetDefenceHeatmaps(newDefenceHeatmaps)
+		defenceHeatmaps = newDefenceHeatmaps
+		defenceHeatmapCount = #newDefenceHeatmaps
 	end
 	
 	local function IsPositionHeatmapFeared(x,z)
 		if heatmapFear then
-			for i = 1, defenseHeatmapCount do
-				local heatValue = defenseHeatmaps[i].GetValueByIndex(x, z)
+			for i = 1, defenceHeatmapCount do
+				local heatValue = defenceHeatmaps[i].GetValueByIndex(x, z)
 				if heatValue >= heatmapFear then
 					return true
 				end
@@ -292,8 +292,8 @@ function PathfinderGenerator.CreatePathfinder(pathUnitDefID, pathMoveDefName, av
 			fearSumCache[x] = {}
 		end
 		local sum = 0
-		for i = 1, defenseHeatmapCount do
-			local heatValue = defenseHeatmaps[i].GetValueByIndex(x, z)
+		for i = 1, defenceHeatmapCount do
+			local heatValue = defenceHeatmaps[i].GetValueByIndex(x, z)
 			sum = sum + heatValue
 		end
 		fearSumCache[x][z] = sum
@@ -491,7 +491,7 @@ function PathfinderGenerator.CreatePathfinder(pathUnitDefID, pathMoveDefName, av
 		pathMap = pathMap,
 		aStar = aStar,
 		GetPath = GetPath,
-		SetDefenseHeatmaps = SetDefenseHeatmaps,
+		SetDefenceHeatmaps = SetDefenceHeatmaps,
 	}
 	
 	return pathMapData

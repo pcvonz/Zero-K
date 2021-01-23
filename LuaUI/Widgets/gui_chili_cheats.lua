@@ -89,14 +89,14 @@ local function AddFacCategory(name)
 end
 
 local buildOpts = VFS.Include("gamedata/buildoptions.lua")
-local factory_commands, econ_commands, defense_commands, special_commands = include("Configs/integral_menu_commands_processed.lua", nil, VFS.RAW_FIRST)
-local econ_list, defense_list, special_list = {}, {}, {}
+local factory_commands, econ_commands, defence_commands, special_commands = include("Configs/integral_menu_commands_processed.lua", nil, VFS.RAW_FIRST)
+local econ_list, defence_list, special_list = {}, {}, {}
 for i = 1, #buildOpts do
 	local name = buildOpts[i]
 	if econ_commands[-UnitDefNames[name].id] then
 		econ_list[#econ_list + 1] = name
-	elseif defense_commands[-UnitDefNames[name].id] then
-		defense_list[#defense_list + 1] = name
+	elseif defence_commands[-UnitDefNames[name].id] then
+		defence_list[#defence_list + 1] = name
 	elseif special_commands[-UnitDefNames[name].id] then
 		special_list[#special_list + 1] = name
 	-- else fac; has its own category (though things can be in multiple cats if wanted)
@@ -125,7 +125,7 @@ AddFacCategory("factoryship")
 AddFacCategory("striderhub")
 AddFacCategory("staticmissilesilo")
 AddMiscCategory("eco", econ_list)
-AddMiscCategory("defense", defense_list)
+AddMiscCategory("defence", defence_list)
 AddMiscCategory("intel_super", special_list)
 AddMiscCategory("comms", {
 	"dynhub_assault_base",
